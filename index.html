@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XOCOLE | Vacantes</title>
+<style>
+:root{
+  --ink:#183b36; --muted:#60726e; --cream:#fbfaf5; --white:#fff;
+  --sage:#a9b89b; --lav:#cbbce5; --peach:#f5b19a; --sky:#a9dce7;
+  --line:#e7e5dc; --shadow:0 18px 50px rgba(30,55,49,.10);
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--cream)}
+button,input{font:inherit}
+.top{background:var(--ink);color:#fff;text-align:center;padding:9px;font-size:13px;letter-spacing:.3px}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:rgba(251,250,245,.95);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px;font-size:25px}
+.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#dbe6d1,#91a782);display:grid;place-items:center}
+.logo svg{width:28px}
+.navlinks{display:flex;gap:28px;font-size:14px}.navlinks a{text-decoration:none;color:var(--ink);font-weight:600}
+.hero{padding:78px 7% 65px;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;overflow:hidden}
+.badge{display:inline-block;padding:8px 14px;border-radius:99px;background:#e8eee2;font-size:12px;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(42px,6vw,76px);line-height:.98;margin:20px 0;color:var(--ink);letter-spacing:-3px}
+.hero p{font-size:18px;line-height:1.7;color:var(--muted);max-width:650px}
+.hero-art{min-height:390px;border-radius:38px;background:linear-gradient(145deg,#dfe8d8,#fff7e9);position:relative;box-shadow:var(--shadow);padding:35px}
+.blob{position:absolute;border-radius:50%;filter:blur(1px)}
+.b1{width:180px;height:180px;background:#b9c8ab;right:-40px;top:-35px}.b2{width:130px;height:130px;background:#f5b19a;left:-25px;bottom:-25px}
+.hero-card{position:relative;margin-top:95px;background:#fff;border-radius:25px;padding:25px;box-shadow:0 15px 35px rgba(40,60,55,.12)}
+.hero-card strong{font-size:25px}.mini{color:var(--muted);font-size:13px;margin-top:7px}
+.section{padding:25px 7% 85px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+.section h2{font-size:42px;letter-spacing:-1.5px;margin:0}.section-head p{color:var(--muted);max-width:500px;line-height:1.6}
+.search{display:flex;gap:12px;margin-bottom:30px}.search input{width:100%;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:#fff;outline:none}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:0 10px 35px rgba(30,55,49,.06);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tag{display:inline-block;padding:7px 11px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.7px}
+.sage{background:#e7eee1}.lav{background:#eee8f7}.peach{background:#fde5dd}.sky{background:#e2f4f7}
+.card h3{font-size:28px;margin:18px 0 9px}.card p{color:var(--muted);line-height:1.6}
+.card ul{padding-left:19px;color:#52635f;line-height:1.7;font-size:14px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:25px;padding-top:20px;border-top:1px solid var(--line)}
+.btn{border:0;border-radius:14px;padding:12px 17px;background:var(--ink);color:#fff;font-weight:800;cursor:pointer}.btn.light{background:#eef2eb;color:var(--ink)}
+.info{padding:60px 7%;background:#edf2e9;display:grid;grid-template-columns:1fr 1fr;gap:25px}.info-box{background:#fff;border-radius:28px;padding:30px}.info h3{margin-top:0;font-size:24px}.info p{color:var(--muted);line-height:1.7}
+footer{padding:35px 7%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:rgba(14,30,27,.55);z-index:50;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{background:#fff;border-radius:28px;max-width:620px;width:100%;padding:32px;max-height:90vh;overflow:auto}.close{float:right;border:0;background:#eef1ec;border-radius:50%;width:36px;height:36px;cursor:pointer}.modal h2{font-size:34px;margin:10px 0}.form{display:grid;gap:12px;margin-top:22px}.form input,.form textarea{padding:13px 15px;border:1px solid var(--line);border-radius:13px}.form textarea{min-height:100px;resize:vertical}
+@media(max-width:800px){.hero,.info{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.navlinks{display:none}.hero{padding-top:50px}.section h2{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="top">XOCOLE · Juntos crecemos · Vacantes disponibles</div>
+<nav>
+  <div class="brand"><div class="logo"><svg viewBox="0 0 40 40" fill="none"><path d="M20 34V15" stroke="#183b36" stroke-width="3" stroke-linecap="round"/><path d="M20 19C12 18 8 13 9 7c7 0 12 4 11 12Z" fill="#6f8a62"/><path d="M21 25c8-1 12-6 11-12-7 0-12 4-11 12Z" fill="#91a782"/><path d="M19 13c-2-5-1-9 2-12 4 4 4 9 0 13Z" fill="#b0c49f"/></svg></div>XOCOLE</div>
+  <div class="navlinks"><a href="#inicio">Inicio</a><a href="#vacantes">Vacantes</a><a href="#empresa">Empresa</a></div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div>
+    <span class="badge">OPORTUNIDADES PROFESIONALES</span>
+    <h1>Encuentra tu próximo lugar para crecer.</h1>
+    <p>En XOCOLE buscamos personas responsables, organizadas, creativas y con ganas de formar parte de un equipo donde puedan desarrollar su talento.</p>
+    <a href="#vacantes"><button class="btn">Ver vacantes →</button></a>
+  </div>
+  <div class="hero-art"><div class="blob b1"></div><div class="blob b2"></div>
+    <div class="hero-card"><strong>¡Forma parte de nuestro equipo!</strong><div class="mini">4 oportunidades · Desarrollo · Buen ambiente · Prestaciones de ley</div></div>
+  </div>
+</section>
+
+<section class="section" id="vacantes">
+  <div class="section-head"><div><span class="badge">VACANTES</span><h2>Elige tu oportunidad.</h2></div><p>Explora los puestos disponibles y revisa sus requisitos, funciones y beneficios.</p></div>
+  <div class="search"><input id="search" placeholder="Buscar por puesto, área o palabra clave..." oninput="filterCards()"></div>
+  <div class="grid">
+    <article class="card" data-search="administrativo administración contabilidad office excel documentos organización">
+      <span class="tag sage">ADMINISTRACIÓN</span><h3>Auxiliar Administrativo</h3>
+      <p>Apoyo en actividades administrativas, documentos, información y seguimiento de pendientes.</p>
+      <ul><li>Licenciatura en Administración, Contabilidad o afín.</li><li>Experiencia mínima de 6 meses.</li><li>Manejo de Microsoft Office y Excel.</li><li>Organización y atención al detalle.</li></ul>
+      <div class="card-footer"><span>Prestaciones de ley</span><button class="btn" onclick="openModal('Auxiliar Administrativo')">Ver vacante</button></div>
+    </article>
+    <article class="card" data-search="recursos humanos rh administración psicología reclutamiento selección excel">
+      <span class="tag lav">RECURSOS HUMANOS</span><h3>Auxiliar de Recursos Humanos</h3>
+      <p>Participa en reclutamiento, selección, expedientes, contratación y actividades de RH.</p>
+      <ul><li>Licenciatura en Administración, RH, Psicología o afín.</li><li>Experiencia mínima de 6 meses.</li><li>Conocimientos básicos de reclutamiento y selección.</li><li>Excel/Office y buena comunicación.</li></ul>
+      <div class="card-footer"><span>Prestaciones de ley</span><button class="btn" onclick="openModal('Auxiliar de Recursos Humanos')">Ver vacante</button></div>
+    </article>
+    <article class="card" data-search="ventas administración mercadotecnia negocios clientes cotizaciones pedidos">
+      <span class="tag peach">VENTAS</span><h3>Ejecutivo de Ventas</h3>
+      <p>Atención a clientes, promoción de productos y servicios, cotizaciones y seguimiento de pedidos.</p>
+      <ul><li>Licenciatura en Administración, Mercadotecnia, Negocios o afín.</li><li>Experiencia mínima de 6 meses.</li><li>Facilidad de palabra y comunicación.</li><li>Orientación al cliente, organización y responsabilidad.</li></ul>
+      <div class="card-footer"><span>Prestaciones de ley</span><button class="btn" onclick="openModal('Ejecutivo de Ventas')">Ver vacante</button></div>
+    </article>
+    <article class="card" data-search="marketing mercadotecnia comunicación redes sociales digital excel campañas contenido">
+      <span class="tag sky">MARKETING</span><h3>Auxiliar de Marketing</h3>
+      <p>Apoyo en contenido para redes sociales, campañas, materiales publicitarios y reportes.</p>
+      <ul><li>Licenciatura en Mercadotecnia, Comunicación, Administración o afín.</li><li>Experiencia mínima de 6 meses.</li><li>Manejo básico de redes sociales y herramientas digitales.</li><li>Creatividad, organización y comunicación.</li></ul>
+      <div class="card-footer"><span>Prestaciones de ley</span><button class="btn" onclick="openModal('Auxiliar de Marketing')">Ver vacante</button></div>
+    </article>
+  </div>
+</section>
+
+<section class="info" id="empresa">
+  <div class="info-box"><h3>¿Qué ofrecemos?</h3><p>Sueldo competitivo · Crecimiento dentro de la empresa · Buen ambiente de trabajo · Prestaciones de ley · Transporte y área de comedor.</p></div>
+  <div class="info-box"><h3>Informes</h3><p>Acudir con solicitud elaborada al área de Recursos Humanos con la Lic. Andrea Guadalupe Ramírez Juárez.<br><b>Horario:</b> 9:00 AM a 5:00 PM<br><b>Web:</b> www.xocole.com.org<br><b>Teléfono:</b> 461 260 2767<br><b>Fecha límite:</b> 18 de septiembre de 2026.</p></div>
+</section>
+
+<footer><span>© 2026 XOCOLE · Juntos crecemos</span><span>Simulador académico de página web</span></footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box"><button class="close" onclick="closeModal()">×</button><span class="badge">VACANTE DISPONIBLE</span><h2 id="modalTitle"></h2>
+  <p>¿Te interesa esta oportunidad? Completa el formulario de simulación y tu información quedará lista para una postulación.</p>
+  <div class="form"><input placeholder="Nombre completo"><input type="email" placeholder="Correo electrónico"><input placeholder="Teléfono"><textarea placeholder="Mensaje"></textarea><button class="btn" onclick="alert('¡Solicitud enviada! Esta es una simulación académica.')">Enviar solicitud</button></div>
+  </div>
+</div>
+<script>
+function openModal(name){document.getElementById('modalTitle').textContent=name;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function filterCards(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>c.style.display=c.dataset.search.includes(q)?'block':'none')}
+</script>
+</body>
+</html>
